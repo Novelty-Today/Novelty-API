@@ -8,6 +8,7 @@ To start the project:
 * For enviromental variables, see example.env file.
 
 * Necessary files:
+
 AuthKey_S5MUW3248M.p8       Apple Push Notification Key
 
 gcp-key-file.json       Google Storage Key
