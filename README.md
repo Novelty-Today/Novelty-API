@@ -9,6 +9,9 @@ To start the project:
 
 * Necessary files:
 AuthKey_S5MUW3248M.p8       Apple Push Notification Key
+
 gcp-key-file.json       Google Storage Key
+
 testnovelty-26917-d88ffd95611e.json     Google Service Account File
+
 speechServiceAccount.json       Google Speech Recognition Service Account File
