@@ -1,0 +1,8 @@
+node_modules/
+tempMedia/
+.env
+
+AuthKey_S5MUW3248M.p8
+gcp-key-file.json
+testnovelty-26917-d88ffd95611e.json
+speechServiceAccount.json

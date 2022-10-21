@@ -1,0 +1,36 @@
+const generalTagsList = [
+  "hiking",
+  "hunting",
+  "fishing",
+  "camping",
+  "backpacking",
+  "surfing",
+  "cricket",
+  "bowling",
+  "boxing",
+  "curling",
+  "tennis",
+  "skateboarding",
+  "hockey",
+  "yoga",
+  "coffee",
+  "lunch",
+  "walk",
+  "workout",
+  "dinner",
+  "brunch",
+  "breakfast",
+  "movie",
+  "beach",
+  "meditation",
+  "shopping",
+  "dancing",
+  "golf",
+  "bbq",
+  "sushi",
+  "startups",
+];
+
+const timeTags = ["Today", "Tomorrow", "This week", "Next week"];
+
+module.exports = { generalTagsList, timeTags };

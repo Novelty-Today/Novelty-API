@@ -1,0 +1,13 @@
+{
+  "script": "App.js",
+  "watch": true,
+  "watch_delay": 1000,
+  "ignore_watch": ["tempMedia", "node_modules", ".git", "tempFile", "test.wav"],
+  "watch_options": {
+    "followSymlinks": false
+  },
+  "name": "novelty.server",
+  "log_date_format": "YYYY-MM-DD HH:mm Z",
+  "instances": "max",
+  "exec_mode": "cluster"
+}

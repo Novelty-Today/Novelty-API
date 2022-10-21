@@ -1,0 +1,14 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "org.novelty.today",
+        "paths": [
+          "http://www.novelty.today/redirects/*",
+          "https://novelty.rocks/toNoveltyApp/*"
+        ]
+      }
+    ]
+  }
+}

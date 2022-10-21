@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>PayPal Checkout Integration | Client Demo</title>
+  </head>
+
+  <body class="centered-wrapper">
+    <div class="centered-content" id="paypal-button-container"></div>
+    <p></p>
+
+    <!-- Include the PayPal JavaScript SDK -->
+
+    <script src="https://www.paypal.com/sdk/js?client-id=AelBIfmsMEryBsv_wnDBVGLrzaYVJGGknUnQOWpIhV4dE-mScHtYV4qzM2WpSzDg37MJcg6wX3cIaDwG&enable-funding=venmo&components=buttons,funding-eligibility&disable-funding=credit,card"></script>
+
+    <% var myPrice = price %> <% var myOrderId = orderId %> <% var myEventId =
+    eventId %> <% var myDateIdentifier = dateIdentifier %> <% var myEmail =
+    email %>
+
+    <script>
+      const payWithPayPal = (amount, orderID) => {
+        if (!paypal.isFundingEligible(paypal.FUNDING.VENMO)) {
+          alert("Pay with venmo source is not supported");
+        } else {
+          // Loop over each funding source / payment method
+          paypal.getFundingSources().forEach((fundingSource) => {
+            if (fundingSource === "venmo") {
+              //alert(fundingSource);
+              var button = paypal.Buttons({
+                createOrder: (data, actions) => {
+                  return actions.order.create({
+                    purchase_units: [
+                      {
+                        amount: {
+                          value: amount,
+                        },
+                      },
+                    ],
+                    application_context: {
+                      shipping_preference: "NO_SHIPPING",
+                    },
+                  });
+                },
+                onApprove: (data, actions) => {
+                  return actions.order.capture().then((orderData) => {
+                    alert("payment done");
+                    var order =
+                      orderData?.purchase_units[0]?.payments?.captures[0];
+
+                    // fetch our server with message fetch() and close windows
+                    fetch(
+                      "http://35.235.110.160:8083/venmoTransactionSuccess",
+                      {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                          email: "<%= myEmail  %>",
+                          eventId: "<%= myEventId  %>",
+                          dateIdentifier: "<%= myDateIdentifier  %>",
+                          orderId: "<%= myOrderId  %>",
+                          order: order,
+                        }),
+                      }
+                    )
+                      .then((response) => {
+                        alert(
+                          "transaction complete: you can return to novelty"
+                        );
+                        window.close();
+                      })
+                      .catch((error) => alert(error));
+                  });
+                },
+
+                onCancel: (data) => alert("Transaction cancelled. ", data),
+                onError: (error) => {
+                  alert("Transaction failed. ", error);
+
+                  fetch("http://35.235.110.160:8083/venmoTransactionFail", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                      email: "<%= myEmail  %>",
+                      eventId: "<%= myEventId  %>",
+                      dateIdentifier: "<%= myDateIdentifier  %>",
+                      orderId: "<%= myOrderId  %>",
+                    }),
+                  })
+                    .then((response) => {})
+                    .catch((error) => alert(error));
+                },
+                fundingSource: fundingSource,
+              });
+
+              // if (button.isEligible()) {
+              button.render("#paypal-button-container");
+              // }
+            }
+          });
+        }
+      };
+
+      document.querySelector("p").innerText =
+        "Please, confirm payment of " + "<%= price %>" + " USD ";
+      payWithPayPal(parseFloat("<%= myPrice  %>"), "<%= myOrderId %>");
+    </script>
+  </body>
+</html>
+
+<style>
+  body {
+    width: 95%;
+    margin-top: 40%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    border-width: 10mm;
+    border-color: blue;
+  }
+</style>
+
+<!-- <script>
+      // alert("<%= myDateIdentifier  %>");
+      fetch("http://35.235.110.160:8083/venmoTransactionFail", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: "<%= myEmail  %>",
+          eventId: "<%= myEventId  %>",
+          dateIdentifier: "<%= myDateIdentifier  %>",
+          orderId: "<%= myOrderId  %>",
+        }),
+      })
+        .then(() => {})
+        .catch((error) => alert(error));
+    </script> -->
