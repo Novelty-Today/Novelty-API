@@ -13,8 +13,8 @@ const {
 
 const environment = "production"; // 'debug', 'production'
 
-const mainServerIp = "35.236.82.187"; // novelty.rocks points to it
-const baseUrl = "https://novelty.rocks/";
+const mainServerIp = process.env.mainServerIp; // novelty.rocks points to it
+const baseUrl = process.env.baseUrl; 
 
 const redisBase = {
   ip: mainServerIp,
