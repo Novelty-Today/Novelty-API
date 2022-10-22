@@ -23,6 +23,7 @@ const redisBase = {
 const servicesBaseUrl = process.env.servicesBaseUrl;
 
 const dbURI = process.env.dbURI;
+const dbName = process.env.dbName;
 const MY_SECRET_KEY = process.env.MY_SECRET_KEY;
 
 // Payments
@@ -67,6 +68,8 @@ const mailchimpConfig = {
   SERVER_PREFIX: process.env.SERVER_PREFIX,
 };
 
+const googleCloudProjectId = process.env.googleCloudProjectId;
+
 const eventAttendanceControlTimes = getEventAttendanceControlTimes(environment);
 
 const googleCloudMediaBuckets = getCloudMediaBuckets(environment);
@@ -77,6 +80,7 @@ const notificationsConfig = getNotificationsConfig(environment);
 
 module.exports = {
   dbURI,
+  dbName,
   baseUrl,
   servicesBaseUrl,
   redisBase,
@@ -99,4 +103,5 @@ module.exports = {
   googleCloudMediaBuckets,
   squareConfig,
   notificationsConfig,
+  googleCloudProjectId
 };

@@ -1,8 +1,14 @@
+# dependenies
 node_modules/
-tempMedia/
+
+# media
+
+
+# env file
 .env
 
+# keys files
+novelty-service-account-key.json
 AuthKey_S5MUW3248M.p8
-gcp-key-file.json
 testnovelty-26917-d88ffd95611e.json
 speechServiceAccount.json

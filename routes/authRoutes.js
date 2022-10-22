@@ -15,15 +15,6 @@ const { sendConfirmationEmail } = require("../services/sendAllEmailTypes");
 const { shouldUserSeeOnboarding } = require("../functions/authFunctions");
 
 router.post("/signup", async (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
-  );
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
 
   const { password, confirmPassword, invitationToken } = req.body;
   const email = req.body.email.toLowerCase()?.trim?.();
@@ -98,15 +89,6 @@ router.post("/signup", async (req, res) => {
 });
 
 router.post("/signin", async (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
-  );
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
 
   const email = req.body.email?.toLowerCase()?.trim?.();
   const password = req.body.password;

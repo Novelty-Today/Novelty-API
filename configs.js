@@ -91,19 +91,19 @@ const getNoveltyActionsToAmounts = (environment) => {
 const getCloudMediaBuckets = (environment) => {
   if (environment == "debug") {
     return {
-      eventMediaBucket: "event-media",
-      userMediaBucket: "user-profile-media",
-      feedbackMediaBucket: "feedback-media",
-      chatMediaBucket: "messages-media",
-      interestsMediaBucket: "interests-media",
+      eventMediaBucket: "novelty-event-media",
+      userMediaBucket: "novelty-user-profile-media",
+      feedbackMediaBucket: "novelty-feedback-media",
+      chatMediaBucket: "novelty-messages-media",
+      interestsMediaBucket: "novelty-interests-media",
     };
   } else {
     return {
-      eventMediaBucket: "event-media",
-      userMediaBucket: "user-profile-media",
-      feedbackMediaBucket: "feedback-media",
-      chatMediaBucket: "messages-media",
-      interestsMediaBucket: "interests-media",
+      eventMediaBucket: "novelty-event-media",
+      userMediaBucket: "novelty-user-profile-media",
+      feedbackMediaBucket: "novelty-feedback-media",
+      chatMediaBucket: "novelty-messages-media",
+      interestsMediaBucket: "novelty-interests-media",
     };
   }
 };

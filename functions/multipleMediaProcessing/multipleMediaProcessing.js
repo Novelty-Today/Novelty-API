@@ -178,7 +178,7 @@ const handleImage = (
   width,
   bucketName
 ) => {
-  console.log("/handleImage    ", filename);
+
   const nameAndExt = getSharpImageNameAndExt(originalImagePath, filename);
 
   return Promise.resolve()
@@ -191,6 +191,7 @@ const handleImage = (
       }
     })
     .then(() => {
+
       return Promise.all([
         mainImageResizing(
           originalImagePath,
@@ -205,6 +206,7 @@ const handleImage = (
       ]);
     })
     .then(() => {
+
       return Promise.all([
         uploadMediaToGoogleCloud(
           uploadedImageName,
@@ -220,7 +222,7 @@ const handleImage = (
     })
     .then(() => {
       return "done";
-    });
+    })
 };
 
 const mainImageResizing = (

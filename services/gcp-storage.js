@@ -1,9 +1,10 @@
 const { Storage } = require("@google-cloud/storage");
 const { Buffer } = require("buffer");
+const {googleCloudProjectId} = require('../constants')
 
 const storage = new Storage({
-  projectId: "testnovelty-26917",
-  keyFilename: "./gcp-key-file.json",
+  projectId: googleCloudProjectId,
+  keyFilename: "./novelty-service-account-key.json",
 });
 
 const uploadFile = ({ bucketName, filePath, destFileName, contentType }) => {

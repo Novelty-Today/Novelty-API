@@ -1,8 +1,8 @@
 {
   "scripts": {
-    "prod":"pm2 start pm2-process.json --watch",
-    "stop-prod":"pm2 stop pm2-process.json ",
-    "watch-prod":"pm2 log --lines 1000",
+    "prod": "pm2 start pm2-process.json --watch",
+    "stop-prod": "pm2 stop pm2-process.json ",
+    "watch-prod": "pm2 log --lines 1000",
     "dev": "nodemon App.js"
   },
   "dependencies": {
@@ -47,6 +47,7 @@
     "nodemailer": "^6.6.3",
     "nodemon": "^2.0.15",
     "path": "^0.12.7",
+    "pm2": "^5.2.2",
     "pug": "^3.0.2",
     "qrcode": "^1.4.4",
     "redis": "^3.1.2",

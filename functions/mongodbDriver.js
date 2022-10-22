@@ -1,6 +1,6 @@
 // mongo references
 const { MongoClient } = require("mongodb");
-const { dbURI } = require("../constants");
+const { dbURI,dbName } = require("../constants");
 const client = new MongoClient(dbURI);
 let dbCon;
 
@@ -10,7 +10,7 @@ const mongoConnect = () => {
     return client
       .connect()
       .then(() => {
-        dbCon = client.db("noveltyDB");
+        dbCon = client.db(dbName);
       })
       .catch((error) => {
         console.log("rjnu36", error);

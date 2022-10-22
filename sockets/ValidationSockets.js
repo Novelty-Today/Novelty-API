@@ -28,6 +28,7 @@ const tokenValidation = (token, getOnlyEmail = false) => {
           { email: 1 }
         )
           .then((user) => {
+
             if (user != null) {
               resolve(user?.email);
             } else {
