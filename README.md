@@ -11,8 +11,5 @@ To start the project:
 
 AuthKey_S5MUW3248M.p8       Apple Push Notification Key
 
-gcp-key-file.json       Google Storage Key
+novelty-service-account-key.json      Google Storage Key:For Google Storage
 
-testnovelty-26917-d88ffd95611e.json     Google Service Account File
-
-speechServiceAccount.json       Google Speech Recognition Service Account File

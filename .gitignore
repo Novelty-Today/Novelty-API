@@ -2,7 +2,10 @@
 node_modules/
 
 # media
-
+tempMedia/**/*.png
+tempMedia/**/*.jpeg
+tempMedia/**/*.mp4
+tempMedia/**/*.mov
 
 # env file
 .env
@@ -10,5 +13,3 @@ node_modules/
 # keys files
 novelty-service-account-key.json
 AuthKey_S5MUW3248M.p8
-testnovelty-26917-d88ffd95611e.json
-speechServiceAccount.json

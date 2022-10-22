@@ -168,6 +168,7 @@ router.post(
   requireAuth,
   mediaUpload.single("media"),
   async (req, res) => {
+
     res.send({ message: "Adding picture" });
     const mediaPath = `./tempMedia/media/${req.body.MediaFilename}`;
     const miniMediaPath = `./tempMedia/mediaMini/${req.body.miniMediaFilename}`;
@@ -182,6 +183,7 @@ router.post(
       resizeImg(req.file.fieldname == "media", mediaPath, microMediaPath, 250),
     ])
       .then(() => {
+        console.log('3')
         return Promise.all([
           uploadMediaToGoogleCloud(
             req.body.MediaFilename,
@@ -201,6 +203,7 @@ router.post(
         ]);
       })
       .then(() => {
+
         let newPictureNames = {
           media: buildGoogleCloudUrl(
             googleCloudMediaBuckets.userMediaBucket,

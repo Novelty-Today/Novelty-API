@@ -70,9 +70,6 @@ router.post("/addEventHls", requireAuth, multipleUploadNew, (req, res) => {
   let eventData;
   let forCommunities = [];
 
-  console.log('xxx 1')
-  console.log(req.body.MediaFilenamesArray)
-  console.log(constants.googleCloudMediaBuckets.eventMediaBucket)
   return Promise.all([
     multipleMediaProcessing(
       req.body.MediaFilenamesArray,
@@ -83,8 +80,6 @@ router.post("/addEventHls", requireAuth, multipleUploadNew, (req, res) => {
   ])
     .then(([filenamesArray, coords, forCommunitiesData]) => {
       forCommunities = forCommunitiesData;
-      console.log('xxx 2')
-      console.log("pre-event", req.body);
       return buildAndSaveEvent(
         req.body,
         filenamesArray,
