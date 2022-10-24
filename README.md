@@ -1,6 +1,9 @@
 NOVELTY API REPOSITORY
 
-To start the project:
+Before starting the server:
+For a redis server, run in folder redis next command: redis-server redis.windows.conf
+
+To start the project: 
 1. yarn
 2. yarn prod
 
@@ -11,5 +14,5 @@ To start the project:
 
 AuthKey_S5MUW3248M.p8       Apple Push Notification Key
 
-novelty-service-account-key.json      Google Storage Key:For Google Storage
+novelty-service-account-key.json      Google Storage Key
 
