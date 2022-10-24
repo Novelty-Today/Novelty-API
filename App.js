@@ -139,3 +139,4 @@ Promise.all([mongoose.connect(constants.dbURI), mongoConnect()])
     });
   })
   .catch((error) => console.log("Failed to start the server ", error));
+

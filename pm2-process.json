@@ -8,6 +8,6 @@
   },
   "name": "novelty.server",
   "log_date_format": "YYYY-MM-DD HH:mm Z",
-  "instances": "max",
-  "exec_mode": "cluster"
+  "instances": "1",
+  "exec_mode": "fork"
 }
