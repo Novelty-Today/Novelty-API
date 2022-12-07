@@ -4,6 +4,7 @@ node_modules/
 # media
 tempMedia/**/*.png
 tempMedia/**/*.jpeg
+tempMedia/**/*.jpg
 tempMedia/**/*.mp4
 tempMedia/**/*.mov
 
